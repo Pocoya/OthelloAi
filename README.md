@@ -1,4 +1,4 @@
-# Othello AI
+# Othello-AI implemented using Alpha-beta prunning 
 
 ---
 
