@@ -20,7 +20,7 @@ LDFLAGS =   -g
 LIBS_GUI = -lraylib -lpthread
 
 # Targets
-PROGS = othello
+PROGS = othello othello_gui
 
 all: $(PROGS)
 
@@ -28,11 +28,16 @@ all: $(PROGS)
 othello: main.o
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
+# Compile othello_gui (gui.cpp)
+othello_gui: gui.o
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LIBS_GUI)
 
 # Run programs
 run_othello: othello
 	./othello
 
+run_gui: othello_gui
+	./othello_gui
 
 # Phony targets
 .PHONY: all test clean distclean run_othello run_gui
